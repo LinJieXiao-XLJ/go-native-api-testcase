@@ -48,17 +48,7 @@ go-native-api-testcase/
 | github.com/apache/iotdb-client-go/v2 | v2.0.4 | IoTDB Go 客户端库 |
 | github.com/apache/thrift | v0.15.0 | Apache Thrift RPC 框架 |
 
-### IoTDB 集群配置
-
-本项目默认配置连接本地 IoTDB ：
-
-| 参数 | 默认值       | 说明 |
-|------|-----------|------|
-| Host | 127.0.0.1 | IoTDB 服务地址 |
-| Port | 6667      | IoTDB 服务端口 |
-| UserName | root      | 用户名 |
-| Password | root      | 密码 |
-| Database | test_db   | 测试数据库 |
+### IoTDB 配置
 
 可在 `conf/config.properties` 中修改配置信息
 

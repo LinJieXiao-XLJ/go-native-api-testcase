@@ -52,13 +52,13 @@ go-native-api-testcase/
 
 本项目默认配置连接本地 IoTDB ：
 
-| 参数 | 默认值 | 说明 |
-|------|--------|------|
+| 参数 | 默认值       | 说明 |
+|------|-----------|------|
 | Host | 127.0.0.1 | IoTDB 服务地址 |
-| Port | 6667 | IoTDB 服务端口 |
-| UserName | root | 用户名 |
-| Password | TimechoDB@2021 | 密码 |
-| Database | test_table_db | 测试数据库 |
+| Port | 6667      | IoTDB 服务端口 |
+| UserName | root      | 用户名 |
+| Password | root      | 密码 |
+| Database | test_db   | 测试数据库 |
 
 可在 `conf/config.properties` 中修改配置信息
 

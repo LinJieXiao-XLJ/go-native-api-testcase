@@ -48,7 +48,7 @@ go-native-api-testcase/
 | github.com/apache/iotdb-client-go/v2 | v2.0.4 | IoTDB Go 客户端库 |
 | github.com/apache/thrift | v0.15.0 | Apache Thrift RPC 框架 |
 
-### IoTDB 配置
+### 配置
 
 可在 `conf/config.properties` 中修改配置信息
 

@@ -165,12 +165,18 @@ go test -v ./test/table/ -run TestTableSessionBasic
 
 ### 代码覆盖率测试
 
-#### 生成 HTML 格式覆盖率报告
+#### 检查外部库中的
 
 ```bash
 # 生成覆盖率数据
-go test -cover ./test/... -coverprofile=coverage.out
-# 生成 HTML 报告
+go test -cover ./test/... -coverpkg=github.com/apache/iotdb-client-go/v2/client -coverprofile=coverage.out
+# 生成 HTML 报告（默认位于当前目录下）
 go tool cover -html=coverage.out -o coverage.html
+```
+
+#### 检查本地源码
+
+```bash
+
 ```
 

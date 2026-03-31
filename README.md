@@ -174,9 +174,74 @@ go test -cover ./test/... -coverpkg=github.com/apache/iotdb-client-go/v2/client 
 go tool cover -html=coverage.out -o coverage.html
 ```
 
-#### 检查本地源码
+---
 
-```bash
+# 新增测试用例
 
+## 基础用法
+
+1. 测试文件命名规则：文件名必须是以`_test.go`为结尾，例如：table_session_test.go
+2. 测试函数命名规则：单元测试必须以`Test为开头`，例如：TestTableSessionBasic
+
+```go
+package demo
+import "testing"
+
+// 单元测试
+func TestXxx(t *testing.T) {
+    // 测试逻辑
+}
+
+// 基准测试（性能）
+func BenchmarkXxx(b *testing.B) {
+}
 ```
 
+## 进阶用法
+
+1. 初始化 / 清理方式
+   - 包级别初始化（整个包只执行一次）：`func TestMain(m *testing.M)`
+    ```go
+    package demo
+   import (
+    "os"
+    "testing"
+    )
+    // 整个包只会执行一次
+    func TestMain(m *testing.M) {
+        // 测试前初始化
+
+        // 运行所有测试
+        code := m.Run()
+    
+        // 测试后清理
+
+        // 退出
+        os.Exit(code)
+    }
+    ```
+   - 单个测试文件所有测试函数执行前执行：`func init()`
+   ```go
+   package demo
+   func init() {
+    // 初始化逻辑
+    }
+   ```
+   - 单个文件里每个Test函数执行前自动初始化、执行后自动清理：`t.Cleanup`
+   ```go
+   package demo
+   import "testing"
+   func setup(t *testing.T) {
+        // 初始化逻辑
+
+        // 每个 Test 后：自动清理 
+        t.Cleanup(func() {
+            // 清理环境逻辑
+        })
+    }
+   
+    // ========== 测试函数 ==========
+    func TestA(t *testing.T) {
+        setup(t) // 自动初始化，在测试结束会自动执行清理逻辑
+    }
+   ```

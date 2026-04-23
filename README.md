@@ -159,7 +159,7 @@ go test -v ./test/tree/
 #### 运行单个测试
 
 ```bash
-# 运行指定测试函数
+# 运行指定测试函数（go test 不能稳定地直接按单个 _test.go 文件执行；对应做法是按包运行，再用 -run 限定这个文件里的测）
 go test -v ./test/table/ -run TestTableSessionBasic
 ```
 
